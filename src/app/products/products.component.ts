@@ -26,8 +26,10 @@ export class ProductsComponent {
     }
     console.log(form)
   }
-  // addProduct() {
+
+}
+
+ // addProduct() {
   //   this.products.push(this.productName)
   //   this.productName = '';
   // }
-}
