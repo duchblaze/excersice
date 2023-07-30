@@ -1,0 +1,23 @@
+<h2>My Products</h2>
+<form (ngSubmit)="addProduct(f)" #f="ngForm">
+  <input type="text" ngModel  name="productName" required>
+<button  type="submit">Add Product</button>
+<button type="reset" >Reset fields</button>
+</form>
+<!-- <form (ngSubmit)="addProduct(f)" #f="ngForm" [formGroup]="productForm">
+  <input type="text" ngModel formControlName="productField"  name="productName" required>
+<button [disabled]="productForm.invalid" type="submit">Add Product</button>
+<button type="reset" >Reset fields</button>
+</form> -->
+
+<div  *ngFor="let name of products; index as i">
+
+  <p *ngIf="isDisabled" >{{i + 1}}. {{name}}</p>
+</div>
+<!-- <h2>My Products</h2>
+<input type="text" [(ngModel)]="productName">
+<button *ngIf="isDisabled" (click)="addProduct()">Add Product</button>
+<div  *ngFor="let product of products; index as i">
+
+  <p *ngIf="isDisabled" >{{i + 1}}. {{product}}</p>
+</div> -->

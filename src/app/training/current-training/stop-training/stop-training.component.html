@@ -1,0 +1,10 @@
+<section>
+  <h3 mat-dialog-title>Do you want to stop training?</h3>
+  <mat-dialog-content>
+    <p>Your current progress: <b>{{passData.progress}}%</b></p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="true">Yes</button>
+    <button mat-raised-button [mat-dialog-close]="false">No</button>
+  </mat-dialog-actions>
+</section>
