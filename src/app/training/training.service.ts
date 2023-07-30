@@ -3,7 +3,6 @@ import { Subject } from "rxjs";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, timestamp } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
-// import { DatePipe } from "@angular/common";
 
 
 @Injectable()
@@ -25,7 +24,7 @@ export class TrainingService {
   constructor(private db: AngularFirestore) { }
 
   fetchAvailableExercise() {
-    // return this.availableExercises.slice();
+
     this.db
       .collection('availableExercises')
        .snapshotChanges().pipe(map(docArray => {
@@ -66,15 +65,7 @@ export class TrainingService {
     this.runningExercise = null;
     this.exerciseChanged.next(null as any)
   }
-  // completeExercise() {
-  //   this.exercises.push({
-  //     ...this.runningExercise as Exercise,
-  //     date: new Date(),
-  //     state: 'completed'
-  //   });
-  //   this.runningExercise = null;
-  //   this.exerciseChanged.next(null as any)
-  // }
+
 
   cancelExercise(progress: number) {
     this.addDataToDatabase({
@@ -88,28 +79,6 @@ export class TrainingService {
   this.exerciseChanged.next(null as any);
 
   }
-  // cancelExercise(progress: number) {
-  //   this.exercises.push({
-  //     ...this.runningExercise as Exercise,
-  //     duration: this.runningExercise.duration  * (progress / 100),
-  //     calories: this.runningExercise.calories * (progress / 100),
-  //     date: new Date(),
-  //     state: 'cancelled'
-  // });
-  // this.runningExercise = null;
-  // this.exerciseChanged.next(null as any);
-
-  // }
-
-  // fetchCompletedOrCancelledExercises() {
-  //   // return this.exercises.slice();
-  //   this.db.collection<Exercise>('finishedExercises')
-  //     .valueChanges()
-  //     .subscribe((exercises: Exercise[]) => {
-  //       // this.finishedExercises = exercises; same as below
-  //       this.finishedExercisesChanged.next(exercises)
-  //     })
-  // }
 
   fetchCompletedOrCancelledExercises() {
     this.db.collection('finishedExercises')

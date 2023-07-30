@@ -24,7 +24,6 @@ import { TrainingService } from './training/training.service';
 import { AngularFireModule } from '@angular/fire/compat';
 // import { environment } from 'src/environments/environment.development';
 import { environment } from 'src/environments/environment'
-// import { FirestoreModule } from '@angular/fire/firestore'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UIService } from './ui.service';
@@ -58,12 +57,10 @@ import { FooterComponent } from './navigation/footer/footer.component';
     FlexLayoutModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    // FirestoreModule,
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
   providers: [AuthService, TrainingService, UIService],
   bootstrap: [AppComponent],
-  // entryComponents: [StopTrainingComponent]
 })
 export class AppModule { }

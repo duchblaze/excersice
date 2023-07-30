@@ -20,53 +20,31 @@ export class AuthService {
   ) { }
 
   registerUser(authData: AuthData) {
-    // this.user = {
-    //   email: authData.email,
-    //   userId: Math.round(Math.random() * 10000).toString()
-    // };
+
     this.uiService.loadingStateChanged.next(true);
     this.afAuth.createUserWithEmailAndPassword(authData.email.trim(), authData.password)
       .then((userCredential) => {
         this.uiService.loadingStateChanged.next(false);
         this.authSuccessfully();
         this.router.navigate(['/login']);
-        // console.log(userCredential);
       })
       .catch((error) => {
         this.uiService.loadingStateChanged.next(false);
         this.uiService.showSnackbar(error.message, "OK", 5000)
-          //  this.snackBar.open(error.message, "Ok", { duration: 5000})
       });
 
-
-    // this.afAuth.auth.createUserWithEmailAndPassword(authData.email, authData.password).then(result => {
-    //   this.authSuccessfully();
-    //   console.log(result)
-    // })
-    //   .catch(error => {
-    //     console.log(error)
-    //   });
-
-
-
-    // this.authSuccessfully();
-    // this.authChange.next(true);
-    // this.router.navigate(['/training']);
   }
 
   login(authData: AuthData) {
-    // console.log('User logged in successfully:', authData);
     this.uiService.loadingStateChanged.next(true);
     this.afAuth.signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        // console.log(result)
         this.uiService.loadingStateChanged.next(false);
         this.authSuccessfully();
       })
       .catch(error => {
         this.uiService.loadingStateChanged.next(false);
         this.uiService.showSnackbar(error.message, "OK", 5000)
-        // this.snackBar.open(error.message, "Ok", { duration: 5000})
     })
 
     // this.user = {

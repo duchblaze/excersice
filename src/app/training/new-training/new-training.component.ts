@@ -29,28 +29,7 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
     this.exerciseSubscription = this.trainingService.exercisesChanged
       .subscribe(exercises => this.exercises = exercises);
     this.trainingService.fetchAvailableExercise();
-    // console.log(this.trainingService)
-    //  this.exercises = this.db
-    //   .collection('availableExercises')
-    //    .snapshotChanges().pipe(map(docArray => {
-    //      return docArray.map((doc: any) => {
-    //        return {
-    //          id: doc.payload.doc.id,
-    //          name: doc.payload.doc.data().name,
-    //          duration: doc.payload.doc.data().duration,
-    //          calories: doc.payload.doc.data().calories
-    //          ...doc.payload.doc.data()
-    //        }
-    //      })
-    //    }))
-      //  .subscribe((result: any) => {
-      //  console.log(result)
-      // })
 
-    // this.db.collection('availableExercises').valueChanges().subscribe(result => {
-    //   console.log(result)
-    // })
-    // this.exercises = this.trainingService.getAvailableExercise();
   }
 
   onStartTraining(form: NgForm) {

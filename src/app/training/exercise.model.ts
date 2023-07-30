@@ -1,5 +1,4 @@
 export interface Exercise {
-  // timestamp: any;
   id: string;
   name: string;
   duration?: number;

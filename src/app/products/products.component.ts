@@ -28,8 +28,3 @@ export class ProductsComponent {
   }
 
 }
-
- // addProduct() {
-  //   this.products.push(this.productName)
-  //   this.productName = '';
-  // }
